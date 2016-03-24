@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "18F181B21C9A4DB900B3137D"
-               BuildableName = "YYText.app"
-               BlueprintName = "YYText"
-               ReferencedContainer = "container:YYText.xcodeproj">
+               BlueprintIdentifier = "186F72291CA3DEDE003E9485"
+               BuildableName = "QQText.app"
+               BlueprintName = "QQText"
+               ReferencedContainer = "container:QQText.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,34 +28,14 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "18F181CB1C9A4DBA00B3137D"
-               BuildableName = "YYTextTests.xctest"
-               BlueprintName = "YYTextTests"
-               ReferencedContainer = "container:YYText.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "18F181D61C9A4DBA00B3137D"
-               BuildableName = "YYTextUITests.xctest"
-               BlueprintName = "YYTextUITests"
-               ReferencedContainer = "container:YYText.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "18F181B21C9A4DB900B3137D"
-            BuildableName = "YYText.app"
-            BlueprintName = "YYText"
-            ReferencedContainer = "container:YYText.xcodeproj">
+            BlueprintIdentifier = "186F72291CA3DEDE003E9485"
+            BuildableName = "QQText.app"
+            BlueprintName = "QQText"
+            ReferencedContainer = "container:QQText.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -75,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "18F181B21C9A4DB900B3137D"
-            BuildableName = "YYText.app"
-            BlueprintName = "YYText"
-            ReferencedContainer = "container:YYText.xcodeproj">
+            BlueprintIdentifier = "186F72291CA3DEDE003E9485"
+            BuildableName = "QQText.app"
+            BlueprintName = "QQText"
+            ReferencedContainer = "container:QQText.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "18F181B21C9A4DB900B3137D"
-            BuildableName = "YYText.app"
-            BlueprintName = "YYText"
-            ReferencedContainer = "container:YYText.xcodeproj">
+            BlueprintIdentifier = "186F72291CA3DEDE003E9485"
+            BuildableName = "QQText.app"
+            BlueprintName = "QQText"
+            ReferencedContainer = "container:QQText.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

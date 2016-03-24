@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>YYText.xcscheme</key>
+		<key>QQText.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,17 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>18F181B21C9A4DB900B3137D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>18F181CB1C9A4DBA00B3137D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>18F181D61C9A4DBA00B3137D</key>
+		<key>186F72291CA3DEDE003E9485</key>
 		<dict>
 			<key>primary</key>
 			<true/>
