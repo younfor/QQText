@@ -13,6 +13,7 @@
 		186F72381CA3DEDE003E9485 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186F72361CA3DEDE003E9485 /* Main.storyboard */; };
 		186F723A1CA3DEDE003E9485 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 186F72391CA3DEDE003E9485 /* Assets.xcassets */; };
 		186F723D1CA3DEDE003E9485 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186F723B1CA3DEDE003E9485 /* LaunchScreen.storyboard */; };
+		186F72481CA3E382003E9485 /* QQText.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F72471CA3E382003E9485 /* QQText.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		186F72391CA3DEDE003E9485 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		186F723C1CA3DEDE003E9485 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		186F723E1CA3DEDE003E9485 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		186F72461CA3E382003E9485 /* QQText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QQText.h; path = QQText/QQText.h; sourceTree = "<group>"; };
+		186F72471CA3E382003E9485 /* QQText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QQText.m; path = QQText/QQText.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,7 @@
 		186F722C1CA3DEDE003E9485 /* QQText */ = {
 			isa = PBXGroup;
 			children = (
+				186F72451CA3E357003E9485 /* QQText */,
 				186F72301CA3DEDE003E9485 /* AppDelegate.h */,
 				186F72311CA3DEDE003E9485 /* AppDelegate.m */,
 				186F72331CA3DEDE003E9485 /* ViewController.h */,
@@ -77,6 +81,15 @@
 				186F722E1CA3DEDE003E9485 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		186F72451CA3E357003E9485 /* QQText */ = {
+			isa = PBXGroup;
+			children = (
+				186F72461CA3E382003E9485 /* QQText.h */,
+				186F72471CA3E382003E9485 /* QQText.m */,
+			);
+			name = QQText;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +164,7 @@
 			files = (
 				186F72351CA3DEDE003E9485 /* ViewController.m in Sources */,
 				186F72321CA3DEDE003E9485 /* AppDelegate.m in Sources */,
+				186F72481CA3E382003E9485 /* QQText.m in Sources */,
 				186F722F1CA3DEDE003E9485 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
