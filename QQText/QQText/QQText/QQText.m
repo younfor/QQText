@@ -35,19 +35,37 @@
         NSLog(@"文字");
         NSAttributedString *content = [[NSAttributedString alloc] initWithString:dic[@"content"]];
         [attrstring appendAttributedString:content];
+      } else if ([dic[@"type"] isEqual:@(IMAGE)]) {
+        NSString *url = dic[@"content"];
+        if ([url containsString:@"http"]) {
+          NSLog(@"网络图片");
+        } else {
+          NSLog(@"本地图片");
+          NSTextAttachment * pic = [[NSTextAttachment alloc]init];
+          pic.image = [UIImage imageNamed:dic[@"content"]];
+          if (dic[@"size"] != nil) {
+            CGSize size = CGSizeMake(0, 0);
+            NSNumber *width = dic[@"size"][@"width"];
+            size.width = width.floatValue;
+            NSNumber *height = dic[@"size"][@"height"];
+            size.height = height.floatValue;
+            NSLog(@"%f %f",size.width,size.height);
+            pic.bounds = CGRectMake(0, 0, size.width,size.height);
+          }
+          
+          NSAttributedString *imgAttributed = [NSAttributedString attributedStringWithAttachment:pic];
+          [attrstring appendAttributedString:imgAttributed];
+
+        }
       }
     }
     self.attributedText = attrstring;
-//
+//    插入链接
 //    [attrstring addAttribute:NSLinkAttributeName
 //                       value:@"http://www.baidu.com"
 //                       range:[s1 rangeOfString:s1]];
 //    
 //    // 插入图片
-//    NSTextAttachment * pic = [[NSTextAttachment alloc]init];
-//    pic.image = [UIImage imageNamed:@"logo"];
-//    pic.bounds = CGRectMake(0, 0, 50, 50);
-//    NSAttributedString *imgAttributed = [NSAttributedString attributedStringWithAttachment:pic];
 //    NSLog(@"len:%lu",(unsigned long)attrstring.length);
 //    [attrstring insertAttributedString:imgAttributed atIndex:3];
 //    NSLog(@"len:%lu",(unsigned long)attrstring.length);

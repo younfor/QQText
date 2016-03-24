@@ -20,7 +20,7 @@
   // 数据-JSON格式
   NSArray *dataArray = @[
                          @{@"type":@(TEXT),@"content":@"江南皮革厂倒闭了,黄鹤老板跑路不是人"},
-                         @{@"type":@(IMAGE),@"content":@"logo"},
+                         @{@"type":@(IMAGE),@"content":@"logo",@"size":@{@"width":@(25),@"height":@(25)}},
                          @{@"type":@(URL),@"content":@"一行白鹭",@"link":@"http://baidu.com"},
                          @{@"type":@(TEXT),@"content":@"\nI only love"}
                          ];
