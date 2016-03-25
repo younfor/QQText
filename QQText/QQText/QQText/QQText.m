@@ -7,6 +7,9 @@
 //
 
 #import "QQText.h"
+#import "UIImageView+WebCache.h"
+#import "QQAttachText.h"
+
 @interface QQText()
 @property (nonatomic,strong) NSArray *data;
 @end
@@ -37,58 +40,63 @@
         [attrstring appendAttributedString:content];
       } else if ([dic[@"type"] isEqual:@(IMAGE)]) {
         NSString *url = dic[@"content"];
-        if ([url containsString:@"http"]) {
-          NSLog(@"网络图片");
-        } else {
-          NSLog(@"本地图片");
-          NSTextAttachment * pic = [[NSTextAttachment alloc]init];
-          pic.image = [UIImage imageNamed:dic[@"content"]];
-          if (dic[@"size"] != nil) {
-            CGSize size = CGSizeMake(0, 0);
-            NSNumber *width = dic[@"size"][@"width"];
-            size.width = width.floatValue;
-            NSNumber *height = dic[@"size"][@"height"];
-            size.height = height.floatValue;
-            NSLog(@"%f %f",size.width,size.height);
-            pic.bounds = CGRectMake(0, 0, size.width,size.height);
-          }
+        QQAttachText * pic = [[QQAttachText alloc]init];
+        pic.url = url;
+        pic.image = [[UIImage alloc] init];
+        CGSize size = CGSizeMake(25, 25);
+        if (dic[@"size"] != nil) {
           
-          NSAttributedString *imgAttributed = [NSAttributedString attributedStringWithAttachment:pic];
-          [attrstring appendAttributedString:imgAttributed];
-
+          NSNumber *width = dic[@"size"][@"width"];
+          size.width = width.floatValue;
+          NSNumber *height = dic[@"size"][@"height"];
+          size.height = height.floatValue;
+          NSLog(@"%f %f",size.width,size.height);
         }
+        pic.bounds = CGRectMake(0, 0, size.width,size.height);
+        
+        NSAttributedString *imgAttributed = [NSAttributedString attributedStringWithAttachment:pic];
+        [attrstring appendAttributedString:imgAttributed];
+        
+      } else if ([dic[@"type"] isEqual:@(URL)]) {
+        NSMutableAttributedString *content = [[NSMutableAttributedString alloc] initWithString:dic[@"content"]];
+        [attrstring appendAttributedString:content];
+        [attrstring addAttribute:NSLinkAttributeName
+                               value:dic[@"link"]
+                               range:[[attrstring string] rangeOfString:dic[@"content"]]];
       }
     }
     self.attributedText = attrstring;
-//    插入链接
-//    [attrstring addAttribute:NSLinkAttributeName
-//                       value:@"http://www.baidu.com"
-//                       range:[s1 rangeOfString:s1]];
-//    
-//    // 插入图片
-//    NSLog(@"len:%lu",(unsigned long)attrstring.length);
-//    [attrstring insertAttributedString:imgAttributed atIndex:3];
-//    NSLog(@"len:%lu",(unsigned long)attrstring.length);
-//    //[attrstring replaceCharactersInRange:NSMakeRange(3, 1) withString:@"2333"];
-//    self.qqtext.attributedText = attrstring;
-//    NSLog(@"len:%lu",(unsigned long)self.qqtext.attributedText.length);
-    //  dispatch_async(dispatch_queue_create(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-    //    [NSThread sleepForTimeInterval:1.0f];
-    //    //回到主线程
-    //
-    //    dispatch_sync(dispatch_get_main_queue(), ^{//其实这个也是在子线程中执行的，只是把它放到了主线程的队列中
-    //
-    //      NSTextAttachment * pic = [[NSTextAttachment alloc]init];
-    //      pic.image = [UIImage imageNamed:@"logo"];
-    //      pic.bounds = CGRectMake(0, 0, 50, 50);
-    //      NSAttributedString *imgAttributed = [NSAttributedString attributedStringWithAttachment:pic];
-    //      [attrstring insertAttributedString:imgAttributed atIndex:3];
-    //      self.yytext.attributedText = attrstring;
-    //
-    //    });
-    //
-    //  });
 
   }
+}
+- (void)setAttributedText:(NSAttributedString *)attributedText
+{
+  [super setAttributedText:attributedText];
+  for (UIView* subView in self.subviews) {
+    if ([subView isKindOfClass:[UIImageView class]]) {
+      [subView removeFromSuperview];
+    }
+  }
+  [self.attributedText enumerateAttribute:NSAttachmentAttributeName inRange:NSMakeRange(0, self.attributedText.length) options:NSAttributedStringEnumerationReverse usingBlock:^(QQAttachText* value, NSRange range, BOOL * _Nonnull stop) {
+    if (value && [value isKindOfClass:[QQAttachText class]]) {
+      NSLog(@"有图片");
+      NSString *url = value.url;
+      self.selectedRange = range;
+      NSLog(@"%f,%f",value.bounds.size.width,value.bounds.size.height);
+      CGRect rect = [self firstRectForRange:self.selectedTextRange];
+      self.selectedRange = NSMakeRange(0, 0);
+      UIImageView* imageView = [[UIImageView alloc] init];
+      [self addSubview:imageView];
+      imageView.frame = rect;
+      if ([url containsString:@"http"]) {
+        NSLog(@"网络图片%@",url);
+        [imageView sd_setImageWithURL:[NSURL URLWithString:url]];
+      } else {
+        NSLog(@"本地图片");
+        imageView.image = [UIImage imageNamed:url];
+      }
+    }
+  }];
+  
 }
 @end
